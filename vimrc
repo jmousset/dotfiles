@@ -47,7 +47,6 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
-      
 
 
 " Display line number
@@ -162,18 +161,17 @@ hi Visual ctermbg=black
 "mouse in all modes
 set mouse=a
 
-"options : 
-
+"options
 set wildmenu
 set wildignore+=*.pyc,*.orig
 
 " CUSTOM MAPPINGS
 """""""""""""""""""""""
 "navigate between splits with Ctrl + hjkl
-nnoremap <C-h> <C-w>h 
-nnoremap <C-j> <C-w>j 
-nnoremap <C-k> <C-w>k 
-nnoremap <C-l> <C-w>l 
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 "map =j to json formatting"
 nnoremap =j :%!python -m json.tool<CR>
