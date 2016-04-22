@@ -36,6 +36,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'JCavallo/tryton-vim'
 NeoBundle 'Rykka/riv.vim'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'SirVer/ultisnips'
 
 " Required:
 call neobundle#end()
