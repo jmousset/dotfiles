@@ -25,6 +25,7 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 NeoBundle 'rking/ag.vim'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-scripts/mru.vim'
 NeoBundle 'scrooloose/nerdtree'
@@ -37,6 +38,9 @@ NeoBundle 'JCavallo/tryton-vim'
 NeoBundle 'Rykka/riv.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'SirVer/ultisnips'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-colorscheme-switcher'
+NeoBundle 'kien/rainbow_parentheses.vim'
 
 " Required:
 call neobundle#end()
@@ -95,9 +99,11 @@ set laststatus=2
 
 "let g:airline_theme = 'bubblegum'
 "let g:airline_theme = 'kolor'
-let g:airline_theme = 'base16color'
+"let g:airline_theme = 'wombat'
+"let g:airline_theme='molokai'
+let g:airline_theme='kalisi'
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 
 
 """""""""
@@ -118,8 +124,7 @@ let g:syntastic_python_flake8_post_args='--ignore=E123,E124,E126,E128,E711,W404,
 " Use ag for search
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv"'
-  "let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv"'
+  let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
   "let g:unite_source_grep_default_opts =
   "\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
   "\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.log''--ignore ' .
@@ -154,13 +159,26 @@ let NERDTreeIgnore=['\.pyc$', '\.orig$']
 "colorscheme
 """"""""
 
+"these 2 are good in bad lighting conditions
+"colorscheme desertlink
+"colorscheme evolution
+
+"big font
+"colorscheme dull
+colorscheme heroku
+
+"nothing good from first to "dante"
+
 "colorscheme default
-colorscheme Monokai
-hi Search cterm=NONE ctermfg=grey ctermbg=black
+
+hi Search cterm=NONE ctermfg=white ctermbg=darkgrey
 hi SpellBad cterm=NONE ctermfg=green ctermbg=red
 hi SpellCap cterm=NONE ctermfg=green ctermbg=red
-hi Folded cterm=None ctermfg=darkgreen ctermbg=None
+hi Folded cterm=None ctermfg=none ctermbg=None ctermbg=None
 hi Visual ctermbg=black
+hi CursorLine  cterm=NONE ctermbg=black ctermfg=None guibg=black guifg=white
+set cursorline
+
 
 "mouse in all modes
 set mouse=a
@@ -171,6 +189,9 @@ set wildignore+=*.pyc,*.orig
 
 " CUSTOM MAPPINGS
 """""""""""""""""""""""
+"next color scheme with  leader co
+nnoremap <leader>co :NextColorScheme<CR>
+
 "navigate between splits with Ctrl + hjkl
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
