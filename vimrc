@@ -41,6 +41,8 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-colorscheme-switcher'
 NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mileszs/ack.vim'
 
 " Required:
 call neobundle#end()
@@ -124,14 +126,14 @@ let g:syntastic_python_flake8_post_args='--ignore=E123,E124,E126,E128,E711,W404,
 " Use ag for search
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
+  let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
+  "let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
   "let g:unite_source_grep_default_opts =
   "\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
   "\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.log''--ignore ' .
   "\'.bzr'' -ignore ''.log'''
   let g:unite_source_grep_recursive_opt = ''
 endif
-
 
 nnoremap <leader>f :Unite file <Enter>
 nnoremap <leader>r :Unite -default-action=open -start-insert file_rec<CR>
@@ -141,6 +143,13 @@ nnoremap <leader>a :Unite grep -auto-preview -default-action=persist_open<CR>
 nnoremap <leader>w :UniteWithCursorWord grep -auto-preview -default-action=open <CR>
 nnoremap <leader>x :UniteClose <CR>
 
+
+"ack.vim
+""""""""
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "tryton-vim
 """"""""
@@ -210,3 +219,11 @@ nnoremap <leader>up :cd $VIRTUAL_ENV/tryton-workspace/<CR>
 :imap kj <Esc>
 "save with space from normal mode
 nnoremap <space> :w<CR>
+nnoremap <space><space>  :x<CR>
+
+" make jk , kj , spacespace practical by reducing timetout
+" default timeout is 1000 milliseconds
+set timeoutlen=300
+
+"useful for prose
+nnoremap Q gqap
