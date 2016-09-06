@@ -43,6 +43,8 @@ NeoBundle 'xolox/vim-colorscheme-switcher'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mileszs/ack.vim'
+NeoBundle 'benmills/vimux'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Required:
 call neobundle#end()
@@ -164,6 +166,23 @@ let g:ctrlp_working_path_mode = 0
 """"""""
 let NERDTreeIgnore=['\.pyc$', '\.orig$']
 
+"Vimux
+""""""
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
+" Inspect runner pane
+map <Leader>vi :VimuxInspectRunner<CR>
+" Close vim tmux runner opened by VimuxRunCommand
+map <Leader>vq :VimuxCloseRunner<CR>
+" Interrupt any command running in the runner pane
+map <Leader>vx :VimuxInterruptRunner<CR>
+" Zoom the runner pane (use <bind-key> z to restore runner pane)
+map <Leader>vz :call VimuxZoomRunner()<CR>
+
 """"""""
 "colorscheme
 """"""""
@@ -187,6 +206,8 @@ hi Folded cterm=None ctermfg=none ctermbg=None ctermbg=None
 hi Visual ctermbg=black
 hi CursorLine  cterm=NONE ctermbg=black ctermfg=None guibg=black guifg=white
 set cursorline
+"remove background for vertical pslit
+hi VertSplit cterm=NONE ctermfg=red ctermbg=NONE
 
 
 "mouse in all modes
@@ -227,3 +248,10 @@ set timeoutlen=300
 
 "useful for prose
 nnoremap Q gqap
+
+"nvim specials
+":tnoremap <C-h> <C-\><C-n><C-w>h
+":tnoremap <C-j> <C-\><C-n><C-w>j
+":tnoremap <C-k> <C-\><C-n><C-w>k
+":tnoremap <C-l> <C-\><C-n><C-w>l
+
