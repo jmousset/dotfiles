@@ -45,6 +45,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'benmills/vimux'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'vim-scripts/SQLUtilities'
+NeoBundle 'vim-scripts/Align'
 
 " Required:
 call neobundle#end()
