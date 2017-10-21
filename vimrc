@@ -36,6 +36,7 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'JCavallo/tryton-vim'
 NeoBundle 'Rykka/riv.vim'
+NeoBundle 'Rykka/InstantRst'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'xolox/vim-misc'
@@ -47,12 +48,16 @@ NeoBundle 'benmills/vimux'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'vim-scripts/Align'
+NeoBundle 'thinca/vim-qfreplace'
+NeoBundle 'pangloss/vim-javascript'
 
 " Required:
 call neobundle#end()
 
 " Required:
 filetype plugin indent on
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
@@ -111,6 +116,15 @@ let g:airline_theme='kalisi'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
 
+"""""""""""""
+" ultisnips 
+"""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
 
 """""""""
 " GUNDO"
@@ -123,6 +137,7 @@ nnoremap <F5> :GundoToggle<CR>
 """""""
 let g:syntastic_python_checkers = ['flake8', 'python']
 let g:syntastic_python_flake8_post_args='--ignore=E123,E124,E126,E128,E711,W404,F403'
+let g:syntastic_javascript_checkers = ['standard']
 
 """""""""""""
 "Unite config"
@@ -130,7 +145,8 @@ let g:syntastic_python_flake8_post_args='--ignore=E123,E124,E126,E128,E711,W404,
 " Use ag for search
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
+  "let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
+  let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.json"'
   "let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
   "let g:unite_source_grep_default_opts =
   "\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
@@ -159,6 +175,7 @@ endif
 """"""""
 
 let g:tryton_trytond_path = "$VIRTUAL_ENV/tryton-workspace/trytond"
+let g:tryton_default_mappings = 1
 
 "CTRLP
 """"""""
@@ -256,4 +273,4 @@ nnoremap Q gqap
 ":tnoremap <C-j> <C-\><C-n><C-w>j
 ":tnoremap <C-k> <C-\><C-n><C-w>k
 ":tnoremap <C-l> <C-\><C-n><C-w>l
-
+"
