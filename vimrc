@@ -50,6 +50,8 @@ NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'pangloss/vim-javascript'
+"NeoBundle 'skammer/vim-css-color'
+"NeoBundle 'groenewege/vim-less'
 
 " Required:
 call neobundle#end()
@@ -95,7 +97,7 @@ set softtabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
-
+set backspace=indent,eol,start
 
 "set ',' as leader key
 let mapleader=","
@@ -146,7 +148,7 @@ let g:syntastic_javascript_checkers = ['standard']
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   "let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
-  let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.json"'
+  let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.json" --ignore="node_modules" --ignore="bower_components"'
   "let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
   "let g:unite_source_grep_default_opts =
   "\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
@@ -268,9 +270,11 @@ set timeoutlen=300
 "useful for prose
 nnoremap Q gqap
 
+"less to css
+nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
+
 "nvim specials
 ":tnoremap <C-h> <C-\><C-n><C-w>h
 ":tnoremap <C-j> <C-\><C-n><C-w>j
 ":tnoremap <C-k> <C-\><C-n><C-w>k
 ":tnoremap <C-l> <C-\><C-n><C-w>l
-"
