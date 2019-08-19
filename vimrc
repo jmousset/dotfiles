@@ -50,6 +50,7 @@ NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'dhruvasagar/vim-table-mode'
 "NeoBundle 'skammer/vim-css-color'
 "NeoBundle 'groenewege/vim-less'
 
@@ -75,7 +76,7 @@ set ignorecase
 
 " If the search pattern contains upper case characters, override ignorecase
 " option.
-set smartcase
+se smartcase
 
 " Enable incremental search.
 set incsearch
@@ -148,7 +149,7 @@ let g:syntastic_javascript_checkers = ['standard']
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   "let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
-  let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.json" --ignore="node_modules" --ignore="bower_components"'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --ignore="*.log" --ignore="*.json" --ignore="node_modules" --ignore="bower_components"'
   "let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
   "let g:unite_source_grep_default_opts =
   "\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
@@ -214,7 +215,8 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 
 "big font
 "colorscheme dull
-colorscheme heroku
+"colorscheme heroku
+colorscheme monokain
 
 "nothing good from first to "dante"
 
@@ -229,6 +231,8 @@ hi CursorLine  cterm=NONE ctermbg=black ctermfg=None guibg=black guifg=white
 set cursorline
 "remove background for vertical pslit
 hi VertSplit cterm=NONE ctermfg=red ctermbg=NONE
+set background=dark
+set t_Co=256
 
 
 "mouse in all modes
