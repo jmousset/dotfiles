@@ -41,7 +41,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-colorscheme-switcher'
-NeoBundle 'kien/rainbow_parentheses.vim'
+"NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'benmills/vimux'
@@ -139,7 +139,7 @@ nnoremap <F5> :GundoToggle<CR>
 " syntastic"
 """""""
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_python_flake8_post_args='--ignore=E123,E124,E126,E128,E711,W404,F403'
+let g:syntastic_python_flake8_post_args='--ignore=D100,D101,D102,D105,D200,D204,D205,D300,D400,D401,E123,E124,E126,E127,E128,W404,W503,N806,W504'
 let g:syntastic_javascript_checkers = ['standard']
 
 """""""""""""
@@ -183,6 +183,7 @@ let g:tryton_default_mappings = 1
 "CTRLP
 """"""""
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 "NERDTREE
 """"""""
@@ -258,7 +259,6 @@ nnoremap =j :%!python -m json.tool<CR>
 
 "make current file's dir > local working dir
 nnoremap <leader>cd :lcd %:h<CR>
-nnoremap <leader>up :cd $VIRTUAL_ENV/tryton-workspace/<CR>
 
 "to normal mode with jk
 :imap jk <Esc>

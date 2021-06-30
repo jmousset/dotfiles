@@ -18,3 +18,6 @@ plom = pull origin master
 [user]
 name = Jérémy Mousset
 email = jeremy.mousset@coopengo.com
+
+[diff "bindiff"]
+textconv=hexdump -C
