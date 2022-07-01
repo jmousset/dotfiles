@@ -3,11 +3,11 @@ if has('vim_starting')
   set nocompatible               " Be iMproved
 
 "Required:
-  set runtimepath+=/home/jeremy/.vim/bundle/neobundle.vim/
+  set runtimepath+=/home/jeremy.mousset/.vim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/home/jeremy/.vim/bundle'))
+call neobundle#begin(expand('/home/jeremy.mousset/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -51,8 +51,11 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'dhruvasagar/vim-table-mode'
+"NeoBundle 'nvim-lua/plenary.nvim'
+"NeoBundle 'nvim-telescope/telescope.nvim'
 "NeoBundle 'skammer/vim-css-color'
 "NeoBundle 'groenewege/vim-less'
+NeoBundle 'psf/black'
 
 " Required:
 call neobundle#end()
@@ -139,7 +142,8 @@ nnoremap <F5> :GundoToggle<CR>
 " syntastic"
 """""""
 let g:syntastic_python_checkers = ['flake8', 'python']
-let g:syntastic_python_flake8_post_args='--ignore=D100,D101,D102,D105,D200,D204,D205,D300,D400,D401,E123,E124,E126,E127,E128,W404,W503,N806,W504'
+let g:syntastic_python_pylint_post_args="--max-line-length=80"
+let g:syntastic_python_flake8_post_args='--ignore=D100,D101,D102,D105,D200,D204,D205,D300,D400,D401,E123,E124,E126,E127,E128,W404,W503,N806,W504 --max-line-length=80'
 let g:syntastic_javascript_checkers = ['standard']
 
 """""""""""""
@@ -158,6 +162,7 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+
 nnoremap <leader>f :Unite file <Enter>
 nnoremap <leader>r :Unite -default-action=open -start-insert file_rec<CR>
 nnoremap <leader>m :Unite -auto-preview -start-insert -default-action=persist_open file_mru<CR>
@@ -166,6 +171,10 @@ nnoremap <leader>a :Unite grep -auto-preview -default-action=persist_open<CR>
 nnoremap <leader>w :UniteWithCursorWord grep -auto-preview -default-action=open <CR>
 nnoremap <leader>x :UniteClose <CR>
 
+" TRYING OUT telescope
+"nnoremap <leader>w :Telescope grep_string<CR>
+"nnoremap <leader>a :Telescope live_grep<CR>
+"nnoremap <C-p> :Telescope find_files<CR>
 
 "ack.vim
 """"""""
@@ -216,8 +225,8 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 
 "big font
 "colorscheme dull
-"colorscheme heroku
-colorscheme monokain
+colorscheme heroku
+"colorscheme monokain
 
 "nothing good from first to "dante"
 
@@ -269,7 +278,7 @@ nnoremap <space><space>  :x<CR>
 
 " make jk , kj , spacespace practical by reducing timetout
 " default timeout is 1000 milliseconds
-set timeoutlen=300
+set timeoutlen=400
 
 "useful for prose
 nnoremap Q gqap

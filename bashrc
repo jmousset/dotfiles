@@ -35,6 +35,9 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+TERM="screen-256color"
+
+
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
@@ -120,10 +123,10 @@ fi
 
 export WORKON_HOME=$HOME/Envs
 #source /usr/local/bin/virtualenvwrapper.sh # which virtualenvwrapper.sh
-. $HOME/bins/z/z.sh
+. /usr/bin/z.sh
 
 alias ck='coog server kill'
-alias cs='coog server kill; coog server start; coog server tail -f'
+alias cs='coog repo link; coog server kill; coog server start; coog server tail -f'
 alias cstatus='coog code status'
 alias cfor="coog code foreach"
 alias cstf='coog server tail -f'
@@ -140,13 +143,13 @@ if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline
     source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh  
 fi  
 
-export PGUSER=
-export PGPASSWORD=
+export PGUSER=postgres
+export PGPASSWORD=postgres
 
-export PATH="$HOME/.pyenv/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 
 # direnv
 eval "$(direnv hook bash)"
@@ -155,4 +158,4 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
+. "$HOME/.cargo/env"
