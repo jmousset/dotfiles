@@ -41,6 +41,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-colorscheme-switcher'
+NeoBundle 'ghifarit53/tokyonight-vim'
 "NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mileszs/ack.vim'
@@ -56,6 +57,9 @@ NeoBundle 'dhruvasagar/vim-table-mode'
 "NeoBundle 'skammer/vim-css-color'
 "NeoBundle 'groenewege/vim-less'
 NeoBundle 'psf/black'
+"NeoBundle 'nvim-treesitter/nvim-treesitter'
+"NeoBundle 'romgrk/nvim-treesitter-context'
+"NeoBundle 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " Required:
 call neobundle#end()
@@ -141,9 +145,10 @@ nnoremap <F5> :GundoToggle<CR>
 """""""
 " syntastic"
 """""""
-let g:syntastic_python_checkers = ['flake8', 'python']
+let g:syntastic_python_checkers = ['flake8', 'python', 'pycodestyle', 'pyflakes', 'mccabe']
 let g:syntastic_python_pylint_post_args="--max-line-length=80"
-let g:syntastic_python_flake8_post_args='--ignore=D100,D101,D102,D105,D200,D204,D205,D300,D400,D401,E123,E124,E126,E127,E128,W404,W503,N806,W504 --max-line-length=80'
+let g:syntastic_python_flake8_post_args='--ignore=E128,D100,D101,D102,D105,D200,D204,D205,D300,D400,D401,E123,E124,E126,E127,E128,W404,W503,N806,W504 --max-line-length=80'
+let g:syntastic_python_pycodestyle_post_args='--ignore=E128,D100,D101,D102,D105,D200,D204,D205,D300,D400,D401,E123,E124,E126,E127,E128,W404,W503,N806,W504 --max-line-length=80'
 let g:syntastic_javascript_checkers = ['standard']
 
 """""""""""""

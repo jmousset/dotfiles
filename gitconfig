@@ -18,6 +18,10 @@ plom = pull origin master
 [user]
 name = Jérémy Mousset
 email = jeremy.mousset@coopengo.com
+signingkey = BE88CC76C1DB7754
 
 [diff "bindiff"]
 textconv=hexdump -C
+
+[commit]
+gpgsign = true
