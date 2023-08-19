@@ -1,0 +1,18 @@
+{
+
+    "workbench.colorTheme": "Heroku",
+    "window.zoomLevel": 1,
+
+    "vim.insertModeKeyBindings": [
+        {
+          "before": ["j", "k"],
+          "after": ["<Esc>"]
+        }
+      ],
+      "vim.visualModeKeyBindings": [
+      
+      ],
+      "vim.normalModeKeyBindings": [
+      ]
+      
+}
