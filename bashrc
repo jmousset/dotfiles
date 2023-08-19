@@ -130,9 +130,13 @@ alias cs='coog repo link; coog server kill; coog server start; coog server tail 
 alias cstatus='coog code status'
 alias cfor="coog code foreach"
 alias cstf='coog server tail -f'
+alias db='coog env | grep DB'
+
 alias tmux="TERM=screen-256color-bce tmux"
 alias c="cd .."
 alias ding=" paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
+alias vim="nvim"
+alias nc="rlwrap nc"
 
 if [ -f `which powerline-daemon` ]; then  
 powerline-daemon -q  

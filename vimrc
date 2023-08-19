@@ -52,12 +52,16 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'dhruvasagar/vim-table-mode'
-"NeoBundle 'nvim-lua/plenary.nvim'
-"NeoBundle 'nvim-telescope/telescope.nvim'
+
+" Telescope stuff
+NeoBundle 'nvim-lua/plenary.nvim'
+NeoBundle 'nvim-treesitter/nvim-treesitter'
+NeoBundle 'nvim-telescope/telescope-fzf-native.nvim'
+NeoBundle 'nvim-telescope/telescope.nvim'
+
 "NeoBundle 'skammer/vim-css-color'
 "NeoBundle 'groenewege/vim-less'
 NeoBundle 'psf/black'
-"NeoBundle 'nvim-treesitter/nvim-treesitter'
 "NeoBundle 'romgrk/nvim-treesitter-context'
 "NeoBundle 'nvim-treesitter/nvim-treesitter-textobjects'
 
@@ -157,29 +161,27 @@ let g:syntastic_javascript_checkers = ['standard']
 " Use ag for search
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
-  "let g:unite_source_grep_default_opts = ' --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --ignore="*.log" --ignore="*.json" --ignore="node_modules" --ignore="bower_components"'
-  "let g:unite_source_grep_default_opts = ' --follow --nogroup --nocolor --column --ignore="*.log" --ignore="*.csv" --ignore="*.json"'
-  "let g:unite_source_grep_default_opts =
-  "\ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-  "\  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.log''--ignore ' .
-  "\'.bzr'' -ignore ''.log'''
   let g:unite_source_grep_recursive_opt = ''
 endif
 
 
+"let g:unite_kind_file_vertical_preview = 1
 nnoremap <leader>f :Unite file <Enter>
 nnoremap <leader>r :Unite -default-action=open -start-insert file_rec<CR>
 nnoremap <leader>m :Unite -auto-preview -start-insert -default-action=persist_open file_mru<CR>
-nnoremap <leader>b :Unite -auto-preview -start-insert -default-action=persist_open buffer<CR>
-nnoremap <leader>a :Unite grep -auto-preview -default-action=persist_open<CR>
+"nnoremap <leader>b :Unite -auto-preview -start-insert -default-action=persist_open buffer<CR>
+nnoremap <leader>a :Unite grep -auto-preview -previewheight=25 -default-action=persist_open<CR>
+"nnoremap <leader>a :Unite grep -default-action=persist_open<CR>
 nnoremap <leader>w :UniteWithCursorWord grep -auto-preview -default-action=open <CR>
 nnoremap <leader>x :UniteClose <CR>
 
-" TRYING OUT telescope
+"""""""""""""
+" trying out telescope
+"""""""""""""
 "nnoremap <leader>w :Telescope grep_string<CR>
 "nnoremap <leader>a :Telescope live_grep<CR>
-"nnoremap <C-p> :Telescope find_files<CR>
+"nnoremap <leader>p :Telescope find_files<CR>
 
 "ack.vim
 """"""""
@@ -230,7 +232,8 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 
 "big font
 "colorscheme dull
-colorscheme heroku
+"colorscheme heroku
+colorscheme darkrobot
 "colorscheme monokain
 
 "nothing good from first to "dante"
@@ -283,13 +286,16 @@ nnoremap <space><space>  :x<CR>
 
 " make jk , kj , spacespace practical by reducing timetout
 " default timeout is 1000 milliseconds
-set timeoutlen=400
+set timeoutlen=200
 
 "useful for prose
 nnoremap Q gqap
 
 "less to css
 nnoremap <Leader>m :w <BAR> !lessc % > %:t:r.css<CR><space>
+
+"copy to clipboard
+vnoremap <Leader>c :w !xclip -i -sel c<CR>
 
 "nvim specials
 ":tnoremap <C-h> <C-\><C-n><C-w>h
