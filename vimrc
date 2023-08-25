@@ -1,82 +1,44 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-"Required:
-  set runtimepath+=/home/jeremy.mousset/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('/home/jeremy.mousset/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-NeoBundle 'Shougo/Unite.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundle 'rking/ag.vim'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-scripts/mru.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'JCavallo/tryton-vim'
-NeoBundle 'Rykka/riv.vim'
-NeoBundle 'Rykka/InstantRst'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-colorscheme-switcher'
-NeoBundle 'ghifarit53/tokyonight-vim'
-"NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'benmills/vimux'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'vim-scripts/SQLUtilities'
-NeoBundle 'vim-scripts/Align'
-NeoBundle 'thinca/vim-qfreplace'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'dhruvasagar/vim-table-mode'
+" vim plug
+call plug#begin()
+Plug 'rking/ag.vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'vim-scripts/mru.vim'
+Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
+Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-scripts/SQLUtilities'
+Plug 'vim-scripts/Align'
+Plug 'thinca/vim-qfreplace'
+Plug 'pangloss/vim-javascript'
+Plug 'dhruvasagar/vim-table-mode'
 
 " Telescope stuff
-NeoBundle 'nvim-lua/plenary.nvim'
-NeoBundle 'nvim-treesitter/nvim-treesitter'
-NeoBundle 'nvim-telescope/telescope-fzf-native.nvim'
-NeoBundle 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-telescope/telescope-fzf-native.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-"NeoBundle 'skammer/vim-css-color'
-"NeoBundle 'groenewege/vim-less'
-NeoBundle 'psf/black'
-"NeoBundle 'romgrk/nvim-treesitter-context'
-"NeoBundle 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'psf/black'
+Plug 'tjdevries/colorbuddy.nvim'
+Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'}
 
-" Required:
-call neobundle#end()
+call plug#end()
+
+" end of vim plug-section
 
 " Required:
 filetype plugin indent on
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+set termguicolors
+
+
 
 
 " Display line number
@@ -114,7 +76,6 @@ set backspace=indent,eol,start
 "set ',' as leader key
 let mapleader=","
 
-
 """""""""""""
 "airline config"
 """""""""""""
@@ -126,24 +87,10 @@ set laststatus=2
 "let g:airline_theme = 'kolor'
 "let g:airline_theme = 'wombat'
 "let g:airline_theme='molokai'
-let g:airline_theme='kalisi'
+"let g:airline_theme='kalisi'
+let g:airline_theme='sol'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_powerline_fonts = 1
-
-"""""""""""""
-" ultisnips 
-"""""""""""""
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-
-
-"""""""""
-" GUNDO"
-"""""""""
-nnoremap <F5> :GundoToggle<CR>
 
 
 """""""
@@ -167,21 +114,21 @@ endif
 
 
 "let g:unite_kind_file_vertical_preview = 1
-nnoremap <leader>f :Unite file <Enter>
-nnoremap <leader>r :Unite -default-action=open -start-insert file_rec<CR>
-nnoremap <leader>m :Unite -auto-preview -start-insert -default-action=persist_open file_mru<CR>
+"nnoremap <leader>f :Unite file <Enter>
+"nnoremap <leader>r :Unite -default-action=open -start-insert file_rec<CR>
+"nnoremap <leader>m :Unite -auto-preview -start-insert -default-action=persist_open file_mru<CR>
 "nnoremap <leader>b :Unite -auto-preview -start-insert -default-action=persist_open buffer<CR>
-nnoremap <leader>a :Unite grep -auto-preview -previewheight=25 -default-action=persist_open<CR>
+"nnoremap <leader>a :Unite grep -auto-preview -previewheight=25 -default-action=persist_open<CR>
 "nnoremap <leader>a :Unite grep -default-action=persist_open<CR>
-nnoremap <leader>w :UniteWithCursorWord grep -auto-preview -default-action=open <CR>
-nnoremap <leader>x :UniteClose <CR>
+"nnoremap <leader>w :UniteWithCursorWord grep -auto-preview -default-action=open <CR>
+"nnoremap <leader>x :UniteClose <CR>
 
 """""""""""""
 " trying out telescope
 """""""""""""
-"nnoremap <leader>w :Telescope grep_string<CR>
-"nnoremap <leader>a :Telescope live_grep<CR>
-"nnoremap <leader>p :Telescope find_files<CR>
+nnoremap <leader>w :Telescope grep_string<CR>
+nnoremap <leader>a :Telescope live_grep<CR>
+nnoremap <leader>p :Telescope find_files<CR>
 
 "ack.vim
 """"""""
@@ -233,12 +180,13 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 "big font
 "colorscheme dull
 "colorscheme heroku
-colorscheme darkrobot
+"colorscheme darkrobot
 "colorscheme monokain
 
 "nothing good from first to "dante"
 
 "colorscheme default
+colorscheme modus-operandi
 
 hi Search cterm=NONE ctermfg=white ctermbg=darkgrey
 hi SpellBad cterm=NONE ctermfg=green ctermbg=red

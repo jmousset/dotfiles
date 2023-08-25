@@ -7,17 +7,8 @@
         "when": "terminalFocus"
     },
     {
-        "key": "[KeyM] a",
-        "command": "workbench.action.findInFiles"
-    },
-    {
         "key": "ctrl+shift+f",
         "command": "-workbench.action.findInFiles"
-    },
-    {
-        "key": "[KeyM] w",
-        "command": "editor.action.addSelectionToNextFindMatch",
-        "when": "editorFocus"
     },
     {
         "key": "ctrl+d",

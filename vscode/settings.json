@@ -1,18 +1,37 @@
 {
-
     "workbench.colorTheme": "Heroku",
     "window.zoomLevel": 1,
-
+    "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
-          "before": ["j", "k"],
-          "after": ["<Esc>"]
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         }
-      ],
-      "vim.visualModeKeyBindings": [
-      
-      ],
-      "vim.normalModeKeyBindings": [
-      ]
-      
+    ],
+    "vim.visualModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w"
+            ],
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch"
+            ]
+        }
+    ]
 }
