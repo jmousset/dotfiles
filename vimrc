@@ -19,7 +19,7 @@ Plug 'dhruvasagar/vim-table-mode'
 " Telescope stuff
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-telescope/telescope-fzf-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 

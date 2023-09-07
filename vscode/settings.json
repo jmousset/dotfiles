@@ -1,6 +1,5 @@
 {
     "workbench.colorTheme": "Heroku",
-    "window.zoomLevel": 1,
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
