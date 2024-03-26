@@ -20,6 +20,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-telescope/telescope-fzf-native.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
@@ -27,19 +28,18 @@ Plug 'psf/black'
 Plug 'tjdevries/colorbuddy.nvim'
 Plug 'ishan9299/modus-theme-vim', {'branch': 'stable'}
 
+Plug 'rose-pine/neovim'
+Plug 'folke/tokyonight.nvim'
+
 call plug#end()
 
 " end of vim plug-section
 
-" Required:
 filetype plugin indent on
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 
 set termguicolors
-
-
-
 
 " Display line number
 set number
@@ -63,7 +63,6 @@ set hlsearch
 " Default encoding is UTF8
 set encoding=utf-8
 set fileencoding=utf8
-
 
 syntax on
 set tabstop=4
@@ -177,16 +176,15 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 "colorscheme desertlink
 "colorscheme evolution
 
-"big font
 "colorscheme dull
 "colorscheme heroku
 "colorscheme darkrobot
 "colorscheme monokain
-
 "nothing good from first to "dante"
-
 "colorscheme default
-colorscheme modus-operandi
+"colorscheme modus-operandi
+
+colorscheme shine
 
 hi Search cterm=NONE ctermfg=white ctermbg=darkgrey
 hi SpellBad cterm=NONE ctermfg=green ctermbg=red
